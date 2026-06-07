@@ -1,8 +1,9 @@
 package mchorse.bbs_mod.events.register;
 
+import elgatopro300.bbsaddonengine.IModelManager;
+
 import mchorse.bbs_mod.cubic.model.ModelManager;
 import mchorse.bbs_mod.cubic.model.loaders.IModelLoader;
-import elgatopro300.bbsaddonengine.IModelManager;
 
 public class RegisterModelLoadersEvent
 {

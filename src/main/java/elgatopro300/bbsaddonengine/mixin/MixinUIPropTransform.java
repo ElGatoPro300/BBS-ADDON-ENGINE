@@ -1,15 +1,17 @@
 package elgatopro300.bbsaddonengine.mixin;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngineClient;
+
 import mchorse.bbs_mod.ui.framework.elements.input.UIPropTransform;
 import mchorse.bbs_mod.ui.utils.context.ContextMenuManager;
+
+import java.util.List;
+import java.util.function.BiConsumer;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
-import java.util.function.BiConsumer;
 
 @Mixin(value = UIPropTransform.class, remap = false)
 public class MixinUIPropTransform

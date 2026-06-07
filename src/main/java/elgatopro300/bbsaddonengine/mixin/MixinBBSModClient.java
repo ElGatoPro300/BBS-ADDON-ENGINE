@@ -1,22 +1,27 @@
 package elgatopro300.bbsaddonengine.mixin;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngineClient;
+import elgatopro300.bbsaddonengine.IBBSModClient;
+
 import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.BBSModClient;
 import mchorse.bbs_mod.addons.AddonInfo;
 import mchorse.bbs_mod.events.BBSAddonMod;
 import mchorse.bbs_mod.events.register.*;
+import mchorse.bbs_mod.particles.ParticleScheme;
+import mchorse.bbs_mod.resources.Link;
 import mchorse.bbs_mod.ui.framework.elements.input.keyframes.shapes.KeyframeShapeRenderers;
 import mchorse.bbs_mod.utils.interps.Interpolations;
-import mchorse.bbs_mod.particles.ParticleScheme;
+
 import net.fabricmc.loader.api.FabricLoader;
+
+import java.util.Collections;
+import java.util.List;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import elgatopro300.bbsaddonengine.IBBSModClient;
-import java.util.List;
 
 @Mixin(value = BBSModClient.class, remap = false)
 public class MixinBBSModClient implements IBBSModClient
@@ -32,7 +37,7 @@ public class MixinBBSModClient implements IBBSModClient
             });
 
         BBSModClient.getL10n().register((lang) -> 
-            java.util.Collections.singletonList(new mchorse.bbs_mod.resources.Link("bbs_addon_engine", "strings/" + lang + ".json"))
+            Collections.singletonList(new Link("bbs_addon_engine", "strings/" + lang + ".json"))
         );
 
         BBSMod.events.post(new RegisterL10nEvent(BBSModClient.getL10n()));

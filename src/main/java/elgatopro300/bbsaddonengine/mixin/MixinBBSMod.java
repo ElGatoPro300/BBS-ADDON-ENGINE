@@ -1,6 +1,7 @@
 package elgatopro300.bbsaddonengine.mixin;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngine;
+
 import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.addons.BBSAddon;
 import mchorse.bbs_mod.camera.clips.ClipFactoryData;
@@ -14,10 +15,13 @@ import mchorse.bbs_mod.events.register.RegisterMolangFunctionsEvent;
 import mchorse.bbs_mod.forms.FormArchitect;
 import mchorse.bbs_mod.math.molang.MolangParser;
 import mchorse.bbs_mod.morphing.Morph;
+import mchorse.bbs_mod.resources.packs.InternalAssetsSourcePack;
 import mchorse.bbs_mod.utils.clips.Clip;
 import mchorse.bbs_mod.utils.factory.MapFactory;
 import mchorse.bbs_mod.utils.keyframes.factories.KeyframeFactories;
+
 import net.fabricmc.loader.api.FabricLoader;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -52,7 +56,7 @@ public class MixinBBSMod
     {
         try
         {
-            BBSMod.getProvider().register(new mchorse.bbs_mod.resources.packs.InternalAssetsSourcePack("bbs_addon_engine", "assets/bbs_addon_engine", BBSAddonEngine.class));
+            BBSMod.getProvider().register(new InternalAssetsSourcePack("bbs_addon_engine", "assets/bbs_addon_engine", BBSAddonEngine.class));
         }
         catch (Throwable ignored)
         {}

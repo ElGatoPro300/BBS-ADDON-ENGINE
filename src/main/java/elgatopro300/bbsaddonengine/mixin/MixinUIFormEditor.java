@@ -1,13 +1,15 @@
 package elgatopro300.bbsaddonengine.mixin;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngineClient;
+
 import mchorse.bbs_mod.ui.forms.editors.UIFormEditor;
 import mchorse.bbs_mod.ui.forms.editors.utils.UIPickableFormRenderer;
+
+import java.util.function.Function;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.function.Function;
 
 @Mixin(value = UIFormEditor.class, remap = false)
 public class MixinUIFormEditor

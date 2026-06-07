@@ -1,12 +1,13 @@
 package mchorse.bbs_mod.ui.addons;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngineClient;
+
 import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.BBSModClient;
 import mchorse.bbs_mod.addons.AddonInfo;
 import mchorse.bbs_mod.graphics.texture.Texture;
-import mchorse.bbs_mod.l10n.keys.IKey;
 import mchorse.bbs_mod.l10n.L10n;
+import mchorse.bbs_mod.l10n.keys.IKey;
 import mchorse.bbs_mod.resources.packs.InternalAssetsSourcePack;
 import mchorse.bbs_mod.ui.framework.UIContext;
 import mchorse.bbs_mod.ui.framework.elements.UIElement;

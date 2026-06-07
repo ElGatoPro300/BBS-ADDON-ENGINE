@@ -1,13 +1,18 @@
 package elgatopro300.bbsaddonengine;
 
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.MethodNode;
-import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
-import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+import mchorse.bbs_mod.BBSModClient;
 
 import java.util.List;
 import java.util.Set;
+
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.InsnNode;
+import org.objectweb.asm.tree.MethodInsnNode;
+import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.VarInsnNode;
+import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
+import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
 {
@@ -29,7 +34,7 @@ public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
     @Override
     public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo)
     {
-        if (targetClassName.equals("mchorse.bbs_mod.BBSModClient"))
+        if (targetClassName.equals("BBSModClient"))
         {
             // Add public static void registerAddon(AddonInfo info) to BBSModClient
             MethodNode registerAddon = new MethodNode(
@@ -40,15 +45,15 @@ public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
                 null
             );
             
-            registerAddon.instructions.add(new org.objectweb.asm.tree.VarInsnNode(Opcodes.ALOAD, 0));
-            registerAddon.instructions.add(new org.objectweb.asm.tree.MethodInsnNode(
+            registerAddon.instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
+            registerAddon.instructions.add(new MethodInsnNode(
                 Opcodes.INVOKESTATIC,
                 "elgatopro300/bbsaddonengine/BBSAddonEngineClient",
                 "registerAddon",
                 "(Lmchorse/bbs_mod/addons/AddonInfo;)V",
                 false
             ));
-            registerAddon.instructions.add(new org.objectweb.asm.tree.InsnNode(Opcodes.RETURN));
+            registerAddon.instructions.add(new InsnNode(Opcodes.RETURN));
             
             targetClass.methods.add(registerAddon);
         }

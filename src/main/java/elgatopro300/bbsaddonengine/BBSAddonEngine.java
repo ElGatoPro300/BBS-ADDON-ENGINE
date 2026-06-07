@@ -3,14 +3,16 @@ package elgatopro300.bbsaddonengine;
 import mchorse.bbs_mod.math.functions.Function;
 import mchorse.bbs_mod.morphing.IEntityCaptureHandler;
 import mchorse.bbs_mod.utils.IRayTracingHandler;
+
 import net.fabricmc.api.ModInitializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BBSAddonEngine implements ModInitializer
 {
