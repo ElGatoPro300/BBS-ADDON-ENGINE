@@ -14,9 +14,14 @@ import mchorse.bbs_mod.ui.framework.elements.input.keyframes.shapes.KeyframeShap
 import mchorse.bbs_mod.utils.interps.Interpolations;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.metadata.ContactInformation;
+import net.fabricmc.loader.api.metadata.Person;
+import net.fabricmc.loader.api.metadata.ModMetadata;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,6 +39,38 @@ public class MixinBBSModClient implements IBBSModClient
             .forEach((container) ->
             {
                 BBSMod.events.register(container.getEntrypoint());
+            });
+
+        /* Register addons from FabricLoader */
+        FabricLoader.getInstance()
+            .getEntrypointContainers("bbs-addon", BBSAddonMod.class)
+            .forEach((container) ->
+            {
+                ModMetadata meta = container.getProvider().getMetadata();
+                String id = meta.getId();
+                String name = meta.getName();
+                String version = meta.getVersion().getFriendlyString();
+                String description = meta.getDescription();
+                List<String> authors = meta.getAuthors().stream().map(Person::getName).collect(Collectors.toList());
+                
+                Link icon = null;
+                Optional<String> iconPath = meta.getIconPath(64);
+                if (iconPath.isPresent())
+                {
+                    String path = iconPath.get();
+                    if (path.startsWith("assets/"))
+                    {
+                        String relative = path.substring("assets/".length());
+                        icon = new Link("mod_icons", relative);
+                    }
+                }
+                
+                ContactInformation contact = meta.getContact();
+                String website = contact.get("homepage").orElse("");
+                String issues = contact.get("issues").orElse("");
+                String source = contact.get("sources").orElse("");
+
+                BBSAddonEngineClient.registerAddon(new mchorse.bbs_mod.addons.AddonInfo(id, name, version, description, authors, icon, website, issues, source));
             });
 
         BBSModClient.getL10n().register((lang) -> 

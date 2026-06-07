@@ -22,7 +22,10 @@
     "UIKeyframeFactoryAccessor",
     "UIValueMapAccessor",
     "ImportersAccessor",
-    "MixinModelManager"
+    "MixinModelManager",
+    "AccessorUIReplaysEditor",
+    "MixinFormCategories",
+    "MixinExtraFormSection"
   ],
   "injectors": {
     "defaultRequire": 1
