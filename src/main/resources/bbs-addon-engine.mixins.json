@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "elgatopro300.bbsaddonengine.mixin",
+  "plugin": "elgatopro300.bbsaddonengine.BBSAddonEngineMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinBBSMod",
+    "MixinMorph",
+    "MixinMolangParser",
+    "MixinRayTracing"
+  ],
+  "client": [
+    "MixinBBSModClient",
+    "MixinUIDashboard",
+    "MixinUIPropTransform",
+    "MixinUIFormEditor",
+    "MixinUIFilmPreview",
+    "MixinStencilMap",
+    "MixinUIReplayList",
+    "MixinUIReplaysOverlayPanel",
+    "UIFormEditorAccessor",
+    "UIKeyframeFactoryAccessor",
+    "UIValueMapAccessor",
+    "ImportersAccessor",
+    "MixinModelManager"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

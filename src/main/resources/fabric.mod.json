@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "bbs-addon-engine",
+  "version": "${version}",
+  "name": "BBS Addon Engine",
+  "description": "Compatibility layer for running BBS CML Edition addons on BBS Base.",
+  "authors": [
+    "ElGatoPro300"
+  ],
+  "contact": {
+    "sources": "https://github.com/ElGatoPro300/BBS-ADDON-ENGINE"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "elgatopro300.bbsaddonengine.BBSAddonEngine"
+    ],
+    "client": [
+      "elgatopro300.bbsaddonengine.BBSAddonEngineClient"
+    ]
+  },
+  "mixins": [
+    "bbs-addon-engine.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "bbs": "*"
+  }
+}

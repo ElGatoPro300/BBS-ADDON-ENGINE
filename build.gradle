@@ -97,6 +97,7 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
+	exclude 'mchorse/bbs_mod/ui/utils/Gizmo.class'
 }
 
 // configure the maven publication

@@ -1,0 +1,13 @@
+{
+  "bbs.ui.addons.author": "Autor: %s",
+  "bbs.ui.addons.configure": "Configurar",
+  "bbs.ui.addons.issues": "Problemas",
+  "bbs.ui.addons.license": "Licencia",
+  "bbs.ui.addons.no_addons": "No se encontraron complementos",
+  "bbs.ui.addons.reload": "Recargar",
+  "bbs.ui.addons.source": "Fuente",
+  "bbs.ui.addons.title": "Complementos",
+  "bbs.ui.addons.version": "Versión",
+  "bbs.ui.addons.website": "Sitio web",
+  "bbs.ui.addons.key": "Complementos"
+}

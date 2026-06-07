@@ -1,0 +1,13 @@
+{
+  "bbs.ui.addons.author": "Author: %s",
+  "bbs.ui.addons.configure": "Configure",
+  "bbs.ui.addons.issues": "Issues",
+  "bbs.ui.addons.license": "License",
+  "bbs.ui.addons.no_addons": "No addons found",
+  "bbs.ui.addons.reload": "Reload",
+  "bbs.ui.addons.source": "Source",
+  "bbs.ui.addons.title": "Addons",
+  "bbs.ui.addons.version": "Version",
+  "bbs.ui.addons.website": "Website",
+  "bbs.ui.addons.key": "Addons"
+}
