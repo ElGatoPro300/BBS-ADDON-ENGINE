@@ -7,10 +7,8 @@
   "authors": [
     "ElGatoPro300"
   ],
-  "contact": {
-    "sources": "https://github.com/ElGatoPro300/BBS-ADDON-ENGINE"
-  },
   "license": "MIT",
+  "icon": "assets/bbs_addon_engine/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
