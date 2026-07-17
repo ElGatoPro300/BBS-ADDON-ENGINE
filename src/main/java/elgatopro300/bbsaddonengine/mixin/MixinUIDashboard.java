@@ -1,5 +1,7 @@
 package elgatopro300.bbsaddonengine.mixin;
 
+import mchorse.bbs_mod.BBSMod;
+import mchorse.bbs_mod.events.register.RegisterDashboardPanelsEvent;
 import mchorse.bbs_mod.l10n.L10n;
 import mchorse.bbs_mod.ui.addons.UIAddonsOverlayPanel;
 import mchorse.bbs_mod.ui.dashboard.UIDashboard;
@@ -30,5 +32,7 @@ public class MixinUIDashboard
         });
         this.addons.tooltip(L10n.lang("bbs.ui.addons.key"), Direction.TOP);
         dashboard.getPanels().pinned.add(this.addons);
+
+        BBSMod.events.post(new RegisterDashboardPanelsEvent(dashboard));
     }
 }

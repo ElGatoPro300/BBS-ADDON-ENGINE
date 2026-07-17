@@ -10,6 +10,7 @@ import mchorse.bbs_mod.events.register.RegisterKeyframeFactoriesEvent;
 import mchorse.bbs_mod.events.register.RegisterMolangFunctionsEvent;
 import mchorse.bbs_mod.events.register.RegisterSettingsEvent;
 import mchorse.bbs_mod.events.register.RegisterSourcePacksEvent;
+import mchorse.bbs_mod.events.register.RegisterBBSSettingsEvent;
 
 public abstract class BBSAddon implements BBSAddonMod
 {
@@ -43,6 +44,12 @@ public abstract class BBSAddon implements BBSAddonMod
         this.registerSourcePacks(event);
     }
 
+    @Subscribe
+    public void onRegisterBBSSettings(RegisterBBSSettingsEvent event)
+    {
+        this.registerBBSSettings(event);
+    }
+
     protected void registerForms(RegisterFormsEvent event)
     {}
 
@@ -65,6 +72,9 @@ public abstract class BBSAddon implements BBSAddonMod
     {}
 
     protected void registerSourcePacks(RegisterSourcePacksEvent event)
+    {}
+
+    protected void registerBBSSettings(RegisterBBSSettingsEvent event)
     {}
 
     @Subscribe

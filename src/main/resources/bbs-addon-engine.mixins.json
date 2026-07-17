@@ -7,7 +7,10 @@
     "MixinBBSMod",
     "MixinMorph",
     "MixinMolangParser",
-    "MixinRayTracing"
+    "MixinRayTracing",
+    "BBSModAccessor",
+    "MixinModelBlockEntity",
+    "MixinBBSSettings"
   ],
   "client": [
     "MixinBBSModClient",
@@ -25,7 +28,8 @@
     "MixinModelManager",
     "AccessorUIReplaysEditor",
     "MixinFormCategories",
-    "MixinExtraFormSection"
+    "MixinExtraFormSection",
+    "MixinL10n"
   ],
   "injectors": {
     "defaultRequire": 1

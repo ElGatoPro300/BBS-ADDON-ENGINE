@@ -12,6 +12,8 @@ import mchorse.bbs_mod.events.register.RegisterEntityCaptureHandlersEvent;
 import mchorse.bbs_mod.events.register.RegisterFormsEvent;
 import mchorse.bbs_mod.events.register.RegisterKeyframeFactoriesEvent;
 import mchorse.bbs_mod.events.register.RegisterMolangFunctionsEvent;
+import mchorse.bbs_mod.events.register.RegisterSettingsEvent;
+import mchorse.bbs_mod.events.register.RegisterSourcePacksEvent;
 import mchorse.bbs_mod.forms.FormArchitect;
 import mchorse.bbs_mod.math.molang.MolangParser;
 import mchorse.bbs_mod.morphing.Morph;
@@ -61,11 +63,13 @@ public class MixinBBSMod
         catch (Throwable ignored)
         {}
 
+        BBSMod.events.post(new RegisterSourcePacksEvent(BBSMod.getProvider()));
         BBSMod.events.post(new RegisterMolangFunctionsEvent(BBSAddonEngine.customMolangFunctions));
         BBSMod.events.post(new RegisterFormsEvent(forms));
         BBSMod.events.post(new RegisterKeyframeFactoriesEvent(KeyframeFactories.FACTORIES));
         BBSMod.events.post(new RegisterEntityCaptureHandlersEvent());
         BBSMod.events.post(new RegisterCameraClipsEvent(factoryCameraClips));
         BBSMod.events.post(new RegisterActionClipsEvent(factoryActionClips));
+        BBSMod.events.post(new RegisterSettingsEvent());
     }
 }
