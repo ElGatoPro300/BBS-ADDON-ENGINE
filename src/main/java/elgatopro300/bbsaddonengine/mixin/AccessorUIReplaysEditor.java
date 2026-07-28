@@ -2,9 +2,11 @@ package elgatopro300.bbsaddonengine.mixin;
 
 import mchorse.bbs_mod.ui.film.replays.UIReplaysEditor;
 import mchorse.bbs_mod.ui.utils.icons.Icon;
+
+import java.util.Map;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import java.util.Map;
 
 @Mixin(value = UIReplaysEditor.class, remap = false)
 public interface AccessorUIReplaysEditor

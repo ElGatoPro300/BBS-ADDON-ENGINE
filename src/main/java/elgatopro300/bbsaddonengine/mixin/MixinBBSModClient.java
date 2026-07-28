@@ -8,6 +8,15 @@ import mchorse.bbs_mod.BBSModClient;
 import mchorse.bbs_mod.addons.AddonInfo;
 import mchorse.bbs_mod.events.BBSAddonMod;
 import mchorse.bbs_mod.events.register.*;
+import mchorse.bbs_mod.events.register.RegisterClipInteractionEvent;
+import mchorse.bbs_mod.events.register.RegisterDockLayoutEvent;
+import mchorse.bbs_mod.events.register.RegisterFilmControllerInteractionEvent;
+import mchorse.bbs_mod.events.register.RegisterFormBlendEvent;
+import mchorse.bbs_mod.events.register.RegisterFormEditorSectionEvent;
+import mchorse.bbs_mod.events.register.RegisterFormRenderPhaseEvent;
+import mchorse.bbs_mod.events.register.RegisterParticleSchemeUIEvent;
+import mchorse.bbs_mod.events.register.RegisterSettingsUISectionEvent;
+import mchorse.bbs_mod.events.register.RegisterUIThemeEvent;
 import mchorse.bbs_mod.particles.ParticleScheme;
 import mchorse.bbs_mod.resources.Link;
 import mchorse.bbs_mod.ui.framework.elements.input.keyframes.shapes.KeyframeShapeRenderers;
@@ -15,8 +24,8 @@ import mchorse.bbs_mod.utils.interps.Interpolations;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ContactInformation;
-import net.fabricmc.loader.api.metadata.Person;
 import net.fabricmc.loader.api.metadata.ModMetadata;
+import net.fabricmc.loader.api.metadata.Person;
 
 import java.util.Collections;
 import java.util.List;
@@ -70,7 +79,7 @@ public class MixinBBSModClient implements IBBSModClient
                 String issues = contact.get("issues").orElse("");
                 String source = contact.get("sources").orElse("");
 
-                BBSAddonEngineClient.registerAddon(new mchorse.bbs_mod.addons.AddonInfo(id, name, version, description, authors, icon, website, issues, source));
+                BBSAddonEngineClient.registerAddon(new AddonInfo(id, name, version, description, authors, icon, website, issues, source));
             });
 
         BBSModClient.getL10n().register((lang) -> 
@@ -99,5 +108,14 @@ public class MixinBBSModClient implements IBBSModClient
         BBSMod.events.post(new RegisterReplayListContextMenuEvent());
         BBSMod.events.post(new RegisterReplayPanelEvent());
         BBSMod.events.post(new RegisterClientSettingsEvent());
+        BBSMod.events.post(new RegisterUIThemeEvent());
+        BBSMod.events.post(new RegisterFormEditorSectionEvent());
+        BBSMod.events.post(new RegisterFormRenderPhaseEvent());
+        BBSMod.events.post(new RegisterFormBlendEvent());
+        BBSMod.events.post(new RegisterClipInteractionEvent());
+        BBSMod.events.post(new RegisterDockLayoutEvent(BBSModClient.getDashboard()));
+        BBSMod.events.post(new RegisterParticleSchemeUIEvent());
+        BBSMod.events.post(new RegisterFilmControllerInteractionEvent());
+        BBSMod.events.post(new RegisterSettingsUISectionEvent());
     }
 }

@@ -1,5 +1,11 @@
 package elgatopro300.bbsaddonengine;
 
+import elgatopro300.bbsaddonengine.compat.BBSVersion;
+import elgatopro300.bbsaddonengine.mixin.MixinUIReplayList;
+
+import mchorse.bbs_mod.forms.FormCategories;
+import mchorse.bbs_mod.forms.sections.ExtraFormSection;
+
 import java.util.List;
 import java.util.Set;
 
@@ -14,13 +20,11 @@ import org.objectweb.asm.tree.VarInsnNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-import elgatopro300.bbsaddonengine.compat.BBSVersion;
-
 public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
 {
     private static final String FS_PACKAGE = "elgatopro300.bbsaddonengine.mixin.fs.";
     private static final Set<String> BLOCKED_ON_FS = Set.of(
-        "elgatopro300.bbsaddonengine.mixin.MixinUIReplayList"
+        "MixinUIReplayList"
     );
 
     @Override
@@ -137,7 +141,7 @@ public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
                 targetClass.methods.add(m);
             }
         }
-        else if (targetClassName.equals("mchorse.bbs_mod.forms.FormCategories"))
+        else if (targetClassName.equals("FormCategories"))
         {
             // BBS 1.7.7 jar does not have the 'extraForms' field nor getExtraForms().
             // They were added in a later version of BBS Base.
@@ -174,7 +178,7 @@ public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
                 targetClass.methods.add(m);
             }
         }
-        else if (targetClassName.equals("mchorse.bbs_mod.forms.sections.ExtraFormSection"))
+        else if (targetClassName.equals("ExtraFormSection"))
         {
             // BBS 1.7.7 jar does not have getExtraCategory().
             // bbs-aaaddon calls ExtraFormSection.getExtraCategory() so we inject it.

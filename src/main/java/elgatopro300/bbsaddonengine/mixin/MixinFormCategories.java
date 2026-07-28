@@ -3,13 +3,14 @@ package elgatopro300.bbsaddonengine.mixin;
 import mchorse.bbs_mod.forms.FormCategories;
 import mchorse.bbs_mod.forms.sections.ExtraFormSection;
 import mchorse.bbs_mod.forms.sections.FormSection;
+
+import java.util.List;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
 
 /**
  * Injects into FormCategories to capture the ExtraFormSection instance

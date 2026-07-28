@@ -2,6 +2,7 @@ package elgatopro300.bbsaddonengine.mixin;
 
 import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.actions.ActionManager;
+import mchorse.bbs_mod.camera.clips.ClipFactoryData;
 import mchorse.bbs_mod.events.EventBus;
 import mchorse.bbs_mod.film.FilmManager;
 import mchorse.bbs_mod.forms.FormArchitect;
@@ -9,7 +10,6 @@ import mchorse.bbs_mod.resources.AssetProvider;
 import mchorse.bbs_mod.resources.packs.DynamicSourcePack;
 import mchorse.bbs_mod.resources.packs.ExternalAssetsSourcePack;
 import mchorse.bbs_mod.settings.SettingsManager;
-import mchorse.bbs_mod.camera.clips.ClipFactoryData;
 import mchorse.bbs_mod.utils.clips.Clip;
 import mchorse.bbs_mod.utils.factory.MapFactory;
 

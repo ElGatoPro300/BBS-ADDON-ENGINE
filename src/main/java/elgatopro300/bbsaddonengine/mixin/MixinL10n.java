@@ -4,6 +4,7 @@ import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.events.L10nReloadEvent;
 import mchorse.bbs_mod.l10n.L10n;
 import mchorse.bbs_mod.resources.AssetProvider;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

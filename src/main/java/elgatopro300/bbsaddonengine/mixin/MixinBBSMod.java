@@ -7,11 +7,13 @@ import mchorse.bbs_mod.addons.BBSAddon;
 import mchorse.bbs_mod.camera.clips.ClipFactoryData;
 import mchorse.bbs_mod.events.BBSAddonMod;
 import mchorse.bbs_mod.events.register.RegisterActionClipsEvent;
+import mchorse.bbs_mod.events.register.RegisterActionConfigsEvent;
 import mchorse.bbs_mod.events.register.RegisterCameraClipsEvent;
 import mchorse.bbs_mod.events.register.RegisterEntityCaptureHandlersEvent;
 import mchorse.bbs_mod.events.register.RegisterFormsEvent;
 import mchorse.bbs_mod.events.register.RegisterKeyframeFactoriesEvent;
 import mchorse.bbs_mod.events.register.RegisterMolangFunctionsEvent;
+import mchorse.bbs_mod.events.register.RegisterParticleSimulationsEvent;
 import mchorse.bbs_mod.events.register.RegisterSettingsEvent;
 import mchorse.bbs_mod.events.register.RegisterSourcePacksEvent;
 import mchorse.bbs_mod.forms.FormArchitect;
@@ -71,5 +73,7 @@ public class MixinBBSMod
         BBSMod.events.post(new RegisterCameraClipsEvent(factoryCameraClips));
         BBSMod.events.post(new RegisterActionClipsEvent(factoryActionClips));
         BBSMod.events.post(new RegisterSettingsEvent());
+        BBSMod.events.post(new RegisterActionConfigsEvent());
+        BBSMod.events.post(new RegisterParticleSimulationsEvent());
     }
 }

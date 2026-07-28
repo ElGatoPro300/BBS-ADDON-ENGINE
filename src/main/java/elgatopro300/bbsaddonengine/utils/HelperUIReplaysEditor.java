@@ -1,7 +1,8 @@
 package elgatopro300.bbsaddonengine.utils;
 
-import mchorse.bbs_mod.ui.utils.icons.Icon;
 import elgatopro300.bbsaddonengine.mixin.AccessorUIReplaysEditor;
+
+import mchorse.bbs_mod.ui.utils.icons.Icon;
 
 public class HelperUIReplaysEditor
 {

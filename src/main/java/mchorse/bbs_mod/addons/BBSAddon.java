@@ -3,14 +3,16 @@ package mchorse.bbs_mod.addons;
 import mchorse.bbs_mod.events.BBSAddonMod;
 import mchorse.bbs_mod.events.Subscribe;
 import mchorse.bbs_mod.events.register.RegisterActionClipsEvent;
+import mchorse.bbs_mod.events.register.RegisterActionConfigsEvent;
+import mchorse.bbs_mod.events.register.RegisterBBSSettingsEvent;
 import mchorse.bbs_mod.events.register.RegisterCameraClipsEvent;
 import mchorse.bbs_mod.events.register.RegisterEntityCaptureHandlersEvent;
 import mchorse.bbs_mod.events.register.RegisterFormsEvent;
 import mchorse.bbs_mod.events.register.RegisterKeyframeFactoriesEvent;
 import mchorse.bbs_mod.events.register.RegisterMolangFunctionsEvent;
+import mchorse.bbs_mod.events.register.RegisterParticleSimulationsEvent;
 import mchorse.bbs_mod.events.register.RegisterSettingsEvent;
 import mchorse.bbs_mod.events.register.RegisterSourcePacksEvent;
-import mchorse.bbs_mod.events.register.RegisterBBSSettingsEvent;
 
 public abstract class BBSAddon implements BBSAddonMod
 {
@@ -93,5 +95,23 @@ public abstract class BBSAddon implements BBSAddonMod
     }
 
     protected void registerMolangFunctions(RegisterMolangFunctionsEvent event)
+    {}
+
+    @Subscribe
+    public void onRegisterActionConfigs(RegisterActionConfigsEvent event)
+    {
+        this.registerActionConfigs(event);
+    }
+
+    protected void registerActionConfigs(RegisterActionConfigsEvent event)
+    {}
+
+    @Subscribe
+    public void onRegisterParticleSimulations(RegisterParticleSimulationsEvent event)
+    {
+        this.registerParticleSimulations(event);
+    }
+
+    protected void registerParticleSimulations(RegisterParticleSimulationsEvent event)
     {}
 }
