@@ -20,6 +20,7 @@
     "MixinUIFilmPreview",
     "MixinStencilMap",
     "MixinUIReplayList",
+    "fs.MixinUIReplayListFS",
     "MixinUIReplaysOverlayPanel",
     "UIFormEditorAccessor",
     "UIKeyframeFactoryAccessor",

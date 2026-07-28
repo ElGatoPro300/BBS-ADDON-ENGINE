@@ -14,8 +14,15 @@ import org.objectweb.asm.tree.VarInsnNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
+import elgatopro300.bbsaddonengine.compat.BBSVersion;
+
 public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
 {
+    private static final String FS_PACKAGE = "elgatopro300.bbsaddonengine.mixin.fs.";
+    private static final Set<String> BLOCKED_ON_FS = Set.of(
+        "elgatopro300.bbsaddonengine.mixin.MixinUIReplayList"
+    );
+
     @Override
     public void onLoad(String mixinPackage) {}
 
@@ -23,7 +30,14 @@ public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
     public String getRefMapperConfig() { return null; }
 
     @Override
-    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) { return true; }
+    public boolean shouldApplyMixin(String targetClassName, String mixinClassName)
+    {
+        if (mixinClassName.startsWith(FS_PACKAGE))
+        {
+            return BBSVersion.IS_FS;
+        }
+        return !BBSVersion.IS_FS || !BLOCKED_ON_FS.contains(mixinClassName);
+    }
 
     @Override
     public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
