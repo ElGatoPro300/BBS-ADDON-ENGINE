@@ -11,6 +11,7 @@ import mchorse.bbs_mod.events.register.*;
 import mchorse.bbs_mod.events.register.RegisterClipInteractionEvent;
 import mchorse.bbs_mod.events.register.RegisterDockLayoutEvent;
 import mchorse.bbs_mod.events.register.RegisterFilmControllerInteractionEvent;
+import mchorse.bbs_mod.events.register.RegisterFilmSyncEvent;
 import mchorse.bbs_mod.events.register.RegisterFormBlendEvent;
 import mchorse.bbs_mod.events.register.RegisterFormEditorSectionEvent;
 import mchorse.bbs_mod.events.register.RegisterFormRenderPhaseEvent;
@@ -117,5 +118,6 @@ public class MixinBBSModClient implements IBBSModClient
         BBSMod.events.post(new RegisterParticleSchemeUIEvent());
         BBSMod.events.post(new RegisterFilmControllerInteractionEvent());
         BBSMod.events.post(new RegisterSettingsUISectionEvent());
+        BBSMod.events.post(new RegisterFilmSyncEvent());
     }
 }
