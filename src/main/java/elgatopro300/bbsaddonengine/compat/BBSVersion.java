@@ -1,7 +1,5 @@
 package elgatopro300.bbsaddonengine.compat;
 
-import mchorse.bbs_mod.ui.film.replays.ReplayListEntry;
-
 public final class BBSVersion
 {
     public static final boolean IS_FS = detectFS();
@@ -10,7 +8,7 @@ public final class BBSVersion
     {
         try
         {
-            Class.forName("ReplayListEntry");
+            Class.forName("mchorse.bbs_mod.ui.film.replays.ReplayListEntry");
             return true;
         }
         catch (ClassNotFoundException e)

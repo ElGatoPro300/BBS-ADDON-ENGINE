@@ -39,7 +39,8 @@ WHITELIST = [
     "java.awt.Color",
     "java.util.Random",
     "net.minecraftforge.common.MinecraftForge",
-    "mchorse.bbs_mod.BBS"
+    "mchorse.bbs_mod.BBS",
+    "mchorse.bbs_mod.ui.film.replays.ReplayListEntry"
 ]
 
 # Regex for finding fully qualified names (FQNs)

@@ -40,7 +40,8 @@ public class BBSAddonEngineMixinPlugin implements IMixinConfigPlugin
         {
             return BBSVersion.IS_FS;
         }
-        return !BBSVersion.IS_FS || !BLOCKED_ON_FS.contains(mixinClassName);
+        String simpleName = mixinClassName.substring(mixinClassName.lastIndexOf('.') + 1);
+        return !BBSVersion.IS_FS || !BLOCKED_ON_FS.contains(simpleName);
     }
 
     @Override
