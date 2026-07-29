@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = RayTracing.class, remap = false)
 public class MixinRayTracing
 {
-    @Inject(method = "rayTrace(Lnet/minecraft/world/World;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;D)Lnet/minecraft/util/hit/BlockHitResult;", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "rayTrace(Lnet/minecraft/world/World;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;D)Lnet/minecraft/util/hit/BlockHitResult;", at = @At("HEAD"), cancellable = true, remap = true)
     private static void injectRayTrace(World world, Vec3d pos, Vec3d direction, double d, CallbackInfoReturnable<BlockHitResult> cir)
     {
         for (IRayTracingHandler handler : BBSAddonEngine.rayTracingHandlers)
@@ -36,7 +36,7 @@ public class MixinRayTracing
         }
     }
 
-    @Inject(method = "rayTraceEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;D)Lnet/minecraft/util/hit/HitResult;", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "rayTraceEntity(Lnet/minecraft/entity/Entity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;D)Lnet/minecraft/util/hit/HitResult;", at = @At("HEAD"), cancellable = true, remap = true)
     private static void injectRayTraceEntity(Entity entity, World world, Vec3d pos, Vec3d direction, double d, CallbackInfoReturnable<HitResult> cir)
     {
         for (IRayTracingHandler handler : BBSAddonEngine.rayTracingHandlers)
