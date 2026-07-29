@@ -1,6 +1,7 @@
 package elgatopro300.bbsaddonengine.mixin;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngine;
+import elgatopro300.bbsaddonengine.utils.CMLDetector;
 
 import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.addons.BBSAddon;
@@ -47,6 +48,11 @@ public class MixinBBSMod
     @Inject(method = "onInitialize", at = @At("HEAD"))
     private void injectLoadAddons(CallbackInfo ci)
     {
+        if (CMLDetector.isCMLNativeDetected())
+        {
+            return;
+        }
+
         FabricLoader.getInstance()
             .getEntrypointContainers("bbs-addon", BBSAddonMod.class)
             .forEach((container) ->
@@ -58,6 +64,10 @@ public class MixinBBSMod
     @Inject(method = "onInitialize", at = @At("RETURN"))
     private void injectPostEvents(CallbackInfo ci)
     {
+        if (CMLDetector.isCMLNativeDetected())
+        {
+            return;
+        }
         try
         {
             BBSMod.getProvider().register(new InternalAssetsSourcePack("bbs_addon_engine", "assets/bbs_addon_engine", BBSAddonEngine.class));

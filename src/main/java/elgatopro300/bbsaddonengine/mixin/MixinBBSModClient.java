@@ -2,6 +2,7 @@ package elgatopro300.bbsaddonengine.mixin;
 
 import elgatopro300.bbsaddonengine.BBSAddonEngineClient;
 import elgatopro300.bbsaddonengine.IBBSModClient;
+import elgatopro300.bbsaddonengine.utils.CMLDetector;
 
 import mchorse.bbs_mod.BBSMod;
 import mchorse.bbs_mod.BBSModClient;
@@ -44,6 +45,10 @@ public class MixinBBSModClient implements IBBSModClient
     @Inject(method = "onInitializeClient", at = @At("RETURN"))
     private void injectOnInitializeClient(CallbackInfo ci)
     {
+        if (CMLDetector.isCMLNativeDetected())
+        {
+            return;
+        }
         FabricLoader.getInstance()
             .getEntrypointContainers("bbs-addon-client", BBSAddonMod.class)
             .forEach((container) ->
